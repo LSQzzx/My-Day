@@ -1,0 +1,33 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+    <style name="CustomRadioTheme_blue" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/blue_radio_style</item>
+    </style>
+    <style name="CustomRadioTheme_dblue" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/dblue_radio_style</item>
+    </style>
+    <style name="CustomRadioTheme_red" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/red_radio_style</item>
+    </style>
+    <style name="CustomRadioTheme_black" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/black_radio_style</item>
+    </style>
+    <style name="CustomRadioTheme_yellow" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/yellow_radio_style</item>
+    </style>
+    <style name="CustomRadioTheme_pink" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/pink_radio_style</item>
+    </style>
+    <style name="CustomRadioTheme_green" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/green_radio_style</item>
+    </style>
+    <style name="CustomDialog" parent="android:Theme.Dialog">
+        <item name="android:windowBackground">@drawable/comment_dialog_bg</item>
+    </style>
+</resources>

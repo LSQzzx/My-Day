@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/comment_dialog_bg"
+    app:layout_constraintCircleRadius="10dp"
+    android:paddingStart="10dp"
+    android:paddingEnd="10dp">
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="#deffffff"
+        android:letterSpacing="0.03"
+        android:lineSpacingExtra="8sp"
+        android:text="提示"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="15dp"
+        android:visibility="gone"/>
+    <TextView
+        android:id="@+id/message"
+        android:layout_width="256dp"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:textColor="#99ffffff"
+        android:letterSpacing="0.02"
+        android:lineSpacingExtra="6sp"
+        android:text="添加任务"
+        />
+    <EditText
+        android:id="@+id/et_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:paddingHorizontal="16dp"
+        android:layout_gravity="center_horizontal"
+        android:hint="任务名..."
+        android:maxLines="1"/>
+    <EditText
+        android:id="@+id/et_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:paddingHorizontal="16dp"
+        android:layout_gravity="center_horizontal"
+        android:hint="备注..."
+        android:selectAllOnFocus="true"
+        android:minLines="3"/>
+
+    <RadioGroup
+        android:id="@+id/rg_select"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal">
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/black_b"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:buttonTint="@color/DayNight"
+            android:layout_marginRight="5dp"
+            android:checked="true"
+            android:onClick="black"
+            style="@style/CustomRadioTheme_black"/>
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/red_b"
+            style="@style/CustomRadioTheme_red"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginRight="5dp"
+            android:buttonTint="#d81e06"
+            android:onClick="red" />
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/pink_b"
+            style="@style/CustomRadioTheme_pink"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginRight="5dp"
+            android:buttonTint="#d4237a"
+            android:onClick="pink" />
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/blue_b"
+            style="@style/CustomRadioTheme_blue"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginRight="5dp"
+            android:buttonTint="#1296db"
+            android:onClick="blue" />
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/dblue_b"
+            style="@style/CustomRadioTheme_dblue"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginRight="5dp"
+            android:buttonTint="#13227a"
+            android:onClick="dblue" />
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/green_b"
+            style="@style/CustomRadioTheme_green"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginRight="5dp"
+            android:buttonTint="#1afa29"
+            android:onClick="green" />
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/yellow_b"
+            style="@style/CustomRadioTheme_yellow"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginRight="5dp"
+            android:buttonTint="#f4ea2a"
+            android:onClick="yellow" />
+    </RadioGroup>
+
+</LinearLayout>
