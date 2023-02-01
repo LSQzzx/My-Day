@@ -2,6 +2,7 @@ package com.sp1der.myday
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.view.*
 import androidx.appcompat.app.AlertDialog
@@ -57,10 +58,10 @@ class MainActivity : AppCompatActivity() {
         }
 
         btnAddTodo.setOnClickListener {
-            val customDialog = AlertDialog.Builder(this,R.style.CustomDialog)
             val view = LayoutInflater.from(this).inflate(R.layout.setting,null)
-            customDialog.setView(view)
-            customDialog.setPositiveButton(
+            val customDialog = AlertDialog.Builder(this,R.style.CustomDialog)
+                .setView(view)
+                .setPositiveButton(
                 "确定"
             ) { _, _ ->
                 val n = view.et_name.text.toString()
@@ -82,13 +83,14 @@ class MainActivity : AppCompatActivity() {
                     filewrite.close()
                 }
             }
-            customDialog.setNegativeButton(
+                .setNegativeButton(
                 "取消"
             ) { _, _ ->
 
             }
-            customDialog.show()
-
+                .show()
+            customDialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.WHITE)
+            customDialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(Color.WHITE)
             }
 
     }

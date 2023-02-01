@@ -38,6 +38,7 @@
         android:paddingHorizontal="16dp"
         android:layout_gravity="center_horizontal"
         android:hint="任务名..."
+        android:textColor="@color/white"
         android:maxLines="1"/>
     <EditText
         android:id="@+id/et_info"
@@ -47,6 +48,7 @@
         android:paddingHorizontal="16dp"
         android:layout_gravity="center_horizontal"
         android:hint="备注..."
+        android:textColor="@color/white"
         android:selectAllOnFocus="true"
         android:minLines="3"/>
 
