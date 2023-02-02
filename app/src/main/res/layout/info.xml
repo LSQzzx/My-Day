@@ -47,9 +47,14 @@
         android:paddingHorizontal="16dp"
         android:layout_gravity="center_horizontal"
         android:selectAllOnFocus="true"
-        android:minLines="3"
         android:textIsSelectable="true"
         android:layout_marginBottom="10dp"
         android:textColor="@color/white"/>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/remind_button"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:background="@drawable/remind_white"
+        app:backgroundTint="@color/white"/>
 
 </LinearLayout>

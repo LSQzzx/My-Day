@@ -115,6 +115,8 @@ class MainActivity : AppCompatActivity() {
                 view.info_message.text = "小提示"
                 view.info_name.visibility = View.GONE
                 view.info_info.text = "每次设置越少的任务，可以让你越专注"
+                view.info_info.minLines = 3
+                view.remind_button.visibility = View.GONE
                 customDialog.setView(view)
                 customDialog.show()
                 true

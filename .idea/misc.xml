@@ -8,7 +8,9 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.15520833333333334" />
         <entry key="app/src/main/res/layout/info.xml" value="0.15416666666666667" />
         <entry key="app/src/main/res/layout/item_todo.xml" value="0.39304531085353" />
+        <entry key="app/src/main/res/layout/remind.xml" value="0.15416666666666667" />
         <entry key="app/src/main/res/layout/setting.xml" value="0.15520833333333334" />
+        <entry key="app/src/main/res/layout/time_picker.xml" value="0.19610507246376813" />
         <entry key="app/src/main/res/menu/menu.xml" value="0.15520833333333334" />
       </map>
     </option>
