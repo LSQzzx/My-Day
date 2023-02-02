@@ -1,12 +1,16 @@
 package com.sp1der.myday
 
+import android.Manifest
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.Color
 import android.os.Bundle
 import android.view.*
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.info.view.*
@@ -30,6 +34,15 @@ class MainActivity : AppCompatActivity() {
         todoAdapter = TodoAdapter(mutableListOf())
         rvTodoItems.adapter = todoAdapter
         rvTodoItems.layoutManager = LinearLayoutManager(this)
+
+        val checkP1 = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_CALENDAR)
+        val checkP2 = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CALENDAR)
+        if ((checkP1 == PackageManager.PERMISSION_GRANTED)&&(checkP2 == PackageManager.PERMISSION_GRANTED)){
+            println("yes")
+        } else {
+            ActivityCompat.requestPermissions(this,arrayOf(Manifest.permission.WRITE_CALENDAR,Manifest.permission.READ_CALENDAR),1)
+        }
+
         try {
             if(readStringFromFile(this,"todos") != "null\n"){
                 val rtmp:List<String> = readStringFromFile(this,"todos").split("\n")

@@ -1,16 +1,20 @@
 package com.sp1der.myday
 
+import android.Manifest
+import android.content.pm.PackageManager
 import android.graphics.Color
 import android.graphics.Paint.STRIKE_THRU_TEXT_FLAG
 import android.view.LayoutInflater
 import android.media.MediaPlayer
 import android.os.Build
-import android.text.format.Time
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.info.view.*
 import kotlinx.android.synthetic.main.item_todo.view.*
@@ -90,7 +94,18 @@ class TodoAdapter(
                         .setPositiveButton(
                             "确定"
                         ) { _, _ ->
-
+                            if (remindView.t_year.text.isNotEmpty()){
+                                val date = "${remindView.t_year.text}-${remindView.t_month.text}-${remindView.t_day.text}-${remindView.t_hour.text}-${remindView.t_min.text}-00"
+                                val ts = SimpleDateFormat("yyyy-MM-dd-HH-mm-ss").parse(date, ParsePosition(0)).time
+                                val checkP1 = ContextCompat.checkSelfPermission(context, Manifest.permission.WRITE_CALENDAR)
+                                val checkP2 = ContextCompat.checkSelfPermission(context, Manifest.permission.READ_CALENDAR)
+                                if ((checkP1 == PackageManager.PERMISSION_GRANTED)&&(checkP2 == PackageManager.PERMISSION_GRANTED)){
+                                    CalendarReminderUtils.addCalendarEvent(context,curTodo.title,curTodo.info,ts,0)
+                                } else {
+                                    val toast = Toast.makeText(context,"没有日历读写权限", Toast.LENGTH_SHORT)
+                                    toast.show()
+                                }
+                            }
                         }
                         .setNegativeButton(
                             "取消"
@@ -130,10 +145,18 @@ class TodoAdapter(
                         .setPositiveButton(
                             "确定"
                         ) { _, _ ->
-                            val date = "${remindView.t_year.text}-${remindView.t_month.text}-${remindView.t_day.text}-${remindView.t_hour.text}-${remindView.t_min.text}-00"
-                            val ts = SimpleDateFormat("yyyy-MM-dd-HH-mm-ss").parse(date, ParsePosition(0)).time
-                            CalendarReminderUtils.addCalendarEvent(context,"666","6666",ts,15)
-//                            println(ts)
+                            if (remindView.t_year.text.isNotEmpty()){
+                                val date = "${remindView.t_year.text}-${remindView.t_month.text}-${remindView.t_day.text}-${remindView.t_hour.text}-${remindView.t_min.text}-00"
+                                val ts = SimpleDateFormat("yyyy-MM-dd-HH-mm-ss").parse(date, ParsePosition(0)).time
+                                val checkP1 = ContextCompat.checkSelfPermission(context, Manifest.permission.WRITE_CALENDAR)
+                                val checkP2 = ContextCompat.checkSelfPermission(context, Manifest.permission.READ_CALENDAR)
+                                if ((checkP1 == PackageManager.PERMISSION_GRANTED)&&(checkP2 == PackageManager.PERMISSION_GRANTED)){
+                                    CalendarReminderUtils.addCalendarEvent(context,curTodo.title,curTodo.info,ts,0)
+                                } else {
+                                    val toast = Toast.makeText(context,"没有日历写入权限", Toast.LENGTH_SHORT)
+                                    toast.show()
+                                }
+                            }
                         }
                         .setNegativeButton(
                             "取消"
