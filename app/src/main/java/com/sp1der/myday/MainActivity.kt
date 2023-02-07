@@ -48,6 +48,7 @@ class MainActivity : AppCompatActivity() {
                 val rtmp:List<String> = readStringFromFile(this,"todos").split("\n")
 //                println(rtmp)
                 rtmp.forEach{
+//                    println(it)
                     if(it != ""){
                         val todotmp: List<String> = it.split(" ")
                         todoAdapter.addTodo(
@@ -94,6 +95,7 @@ class MainActivity : AppCompatActivity() {
                     filewrite = openFileOutput("todos",MODE_PRIVATE)
                     filewrite.write(tmp.toByteArray())
                     filewrite.close()
+//                    println("save")
                 }
             }
                 .setNegativeButton(
@@ -116,10 +118,11 @@ class MainActivity : AppCompatActivity() {
                 todoAdapter.todos.forEach{
                     tmp += (it.title+" "+it.isChecked.toString()+" "+it.color+" "+it.info+"\n")
                 }
-//                    println(tmp)
+//                println(tmp)
                 filewrite = openFileOutput("todos",MODE_PRIVATE)
                 filewrite.write(tmp.toByteArray())
                 filewrite.close()
+//                println("save")
                 true
             }
             R.id.more2 -> {
@@ -170,11 +173,12 @@ class MainActivity : AppCompatActivity() {
 //            val stringBuilder = StringBuilder()
             var s:String = ""
             var line: String? = bufferedReader.readLine()+"\n"
-            while (line != null) {
+            while (line != null+"\n") {
                 s += line
-                line = bufferedReader.readLine()
+                line = bufferedReader.readLine()+"\n"
             }
             inputStream.close()
+//            println(s)
             s
         } catch (e: Exception) {
             e.printStackTrace()
