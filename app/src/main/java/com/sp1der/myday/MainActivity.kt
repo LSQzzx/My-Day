@@ -170,9 +170,9 @@ class MainActivity : AppCompatActivity() {
 //            val stringBuilder = StringBuilder()
             var s:String = ""
             var line: String? = bufferedReader.readLine()+"\n"
-            while (line != null) {
+            while (line != null+"\n") {
                 s += line
-                line = bufferedReader.readLine()
+                line = bufferedReader.readLine()+"\n"
             }
             inputStream.close()
             s
