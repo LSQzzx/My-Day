@@ -49,17 +49,30 @@ class MainActivity : AppCompatActivity() {
 //                println(rtmp)
                 rtmp.forEach{
 //                    println(it)
-                    if(it != ""){
-                        val todotmp: List<String> = it.split(" ")
-                        todoAdapter.addTodo(
-                            Todo(
-                                title = todotmp[0],
-                                isChecked = todotmp[1].toBoolean(),
-                                color = todotmp[2],
-                                info = todotmp[3]
-                            )
-                        )
-                    }
+
+                        if (it != "") {
+                            if ("`Sp1der`" in it) {
+                                val todotmp: List<String> = it.split("`Sp1der`")
+                                todoAdapter.addTodo(
+                                    Todo(
+                                        title = todotmp[0],
+                                        isChecked = todotmp[1].toBoolean(),
+                                        color = todotmp[2],
+                                        info = todotmp[3]
+                                    )
+                                )
+                            }else{
+                                val todotmp: List<String> = it.split(" ")
+                                todoAdapter.addTodo(
+                                    Todo(
+                                        title = todotmp[0],
+                                        isChecked = todotmp[1].toBoolean(),
+                                        color = todotmp[2],
+                                        info = todotmp[3]
+                                    )
+                                )
+                            }
+                        }
                 }
             }
 //            println(readStringFromFile(this,"todos"))
@@ -89,7 +102,7 @@ class MainActivity : AppCompatActivity() {
                     colorSelect = "@color/DayNight"
                     var tmp:String = ""
                     todoAdapter.todos.forEach{
-                        tmp += (it.title+" "+it.isChecked.toString()+" "+it.color+" "+it.info+"\n")
+                        tmp += (it.title+"`Sp1der`"+it.isChecked.toString()+"`Sp1der`"+it.color+"`Sp1der`"+it.info+"\n")
                     }
 //                    println(tmp)
                     filewrite = openFileOutput("todos",MODE_PRIVATE)
@@ -116,7 +129,7 @@ class MainActivity : AppCompatActivity() {
                 todoAdapter.deleteDoneTodos()
                 var tmp:String = ""
                 todoAdapter.todos.forEach{
-                    tmp += (it.title+" "+it.isChecked.toString()+" "+it.color+" "+it.info+"\n")
+                    tmp += (it.title+"`Sp1der`"+it.isChecked.toString()+"`Sp1der`"+it.color+"`Sp1der`"+it.info+"\n")
                 }
 //                println(tmp)
                 filewrite = openFileOutput("todos",MODE_PRIVATE)
@@ -188,7 +201,7 @@ class MainActivity : AppCompatActivity() {
     fun cbSave(view: View){
         var tmp:String = ""
         todoAdapter.todos.forEach{
-            tmp += (it.title+" "+it.isChecked.toString()+" "+it.color+" "+it.info+"\n")
+            tmp += (it.title+"`Sp1der`"+it.isChecked.toString()+"`Sp1der`"+it.color+"`Sp1der`"+it.info+"\n")
         }
 //                    println(tmp)
         filewrite = openFileOutput("todos",MODE_PRIVATE)
